@@ -1,3 +1,3 @@
 labs for programming
 
-![escoffier](semester_2/stickers/escoffier.webp)
+<img src="semester_2/stickers/escoffier.webp" alt="escoffier" width="300"/>
