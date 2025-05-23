@@ -1,3 +1,3 @@
 labs for programming
 
-![kaveh](emester_2/stickers/escoffier.webp)
+![escoffier](semester_2/stickers/escoffier.webp)
