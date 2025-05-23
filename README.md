@@ -1,1 +1,1 @@
-лабы за первый курс си
+labs for programming
