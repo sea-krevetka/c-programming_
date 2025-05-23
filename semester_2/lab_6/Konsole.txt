@@ -1,0 +1,35 @@
+//статика
+gcc -c pon.c -o pon.o
+ar rcs libpon.a pon.o
+gcc lab4.c -static -I. -L. -lpon -o ponStatik //блидит -Iинклюды -Lбиблиотеки 
+-lкакую библу
+
+
+//динамика
+gcc -c -fPIC pon.c //не зависит от позиции
+gcc -shared -o libpon.so fct.o //создаем из .o библу
+gcc lab4.c  -I. -L. -lpon -o ponStatik //билдь
+
+
+//сисимаке
+
+
+cmake_minimum_required(VERSION 3.10)
+
+project(lib_test)
+
+set(LIBRARY_SRC src/pon.c)
+
+include_directories("include/" "./")
+
+add_executable(app lab4.c)
+
+if (BUILD_STATIC)
+    message("Build static")
+    add_library(pon STATIC ${LIBRARY_SRC})
+    target_link_libraries(app pon)
+else ()
+    message("Build shared")
+    add_library(pon SHARED ${LIBRARY_SRC})
+    target_link_libraries(app pon)
+endif()
