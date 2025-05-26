@@ -87,7 +87,6 @@ void load_stats() {
     json_t *root = json_load_file(STATS_FILE, 0, &error);
     
     if (!root) {
-        // Файл не существует или поврежден - это нормально при первом запуске
         return;
     }
     
@@ -102,7 +101,6 @@ void load_stats() {
     json_object_foreach(root, nickname, stats_array) {
         if (!json_is_array(stats_array)) continue;
         
-        // Добавляем нового игрока
         players = realloc(players, (player_count + 1) * sizeof(PlayerStats));
         PlayerStats *p = &players[player_count];
         
@@ -134,7 +132,6 @@ void load_leader() {
     json_t *root = json_load_file(LEADER_FILE, 0, &error);
     
     if (!root) {
-        // Файл не существует или поврежден - нормально при первом запуске
         return;
     }
     
